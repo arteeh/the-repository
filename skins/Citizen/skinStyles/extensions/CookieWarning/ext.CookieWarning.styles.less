@@ -1,0 +1,80 @@
+/*
+ * Citizen - Cookie Warning Styles
+ * https://starcitizen.tools
+*/
+
+@import '../../../resources/variables.less';
+@import '../../../resources/mixins.less';
+
+.mw-cookiewarning-container {
+	top: unset;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+	padding: 0;
+	max-width: @screen2;
+	border-radius: @border-radius-large @border-radius-large 0 0;
+	overflow: hidden;
+	opacity: 1;
+	background: @dark-bg-60;
+	font-size: @content-monospace-size;
+	font-weight: normal;
+	.boxshadow(5);
+
+	.mw-cookiewarning-text {
+		display: flex;
+		line-height: 1.4;
+
+		> span {
+			margin: 0;
+			padding: @margin-side;
+			display: block;
+			flex-grow: 1;
+		}
+
+		> form {
+			display: block;
+		}
+
+		> a {
+			margin: 0;
+			padding: @margin-side / 2 @margin-side;
+			height: auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.mw-cookiewarning-dismiss {
+			margin: 0;
+			padding: @margin-side / 2 @margin-side;
+			height: 100%;
+			border-radius: 0;
+			line-height: 1.4;
+			background: @accent-50;
+			transition: @transition-background-quick;
+
+			&:hover {
+				background: @accent-10;
+			}
+		}
+	}
+}
+
+@media only screen and ( max-width: 480px ) {
+	.mw-cookiewarning-container .mw-cookiewarning-text {
+		/* Hack to hide nbsp */
+		font-size: 0;
+		flex-wrap: wrap;
+
+		> span {
+			font-size: @content-small-text-size;
+		}
+
+		> form,
+		> a,
+		.mw-cookiewarning-dismiss {
+			width: 100%;
+		}
+	}
+}

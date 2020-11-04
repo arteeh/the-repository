@@ -1,0 +1,55 @@
+ {{!
+	@typedef object footerItem
+	@prop string id of list item element
+	@prop string html of list item
+	@prop footerItem[] items
+
+	@typedef object footerRow
+	@prop string className of list element
+	@prop string id of list element
+	@prop footerItem[] array-items
+
+	footerRow[] array-footer-rows iterable list of footer rows
+	footerRow[] array-footer-icons iterable list of footer icons
+	string msg-sitetitle
+	string msg-citizen-footer-desc
+	string msg-citizen-footer-tagline
+}}
+
+<footer class="mw-footer" {{{html-user-language-attributes}}}>
+	{{#html-lastmodified}}
+	<div class="last-modified-bar">
+		<div class="last-modified-bar-content">
+			<div class="last-modified-bar-icon"></div>
+			<div class="last-modified-bar-text">{{{.}}}</div>
+		</div>
+	</div>
+	{{/html-lastmodified}}
+	<div id="footer-content">
+		<h2 id="footer-sitetitle" class="mw-wiki-title">{{{msg-sitetitle}}}</h2>
+		<p id="footer-desc">{{{msg-citizen-footer-desc}}}</p>
+		{{#array-footer-rows}}
+		<nav id="{{id}}" {{#className}}class="{{.}}"{{/className}}>
+			<ul>
+				{{#array-items}}
+				<li id="{{id}}">{{{html}}}</li>
+				{{/array-items}}
+			</ul>
+		</nav>
+		{{/array-footer-rows}}
+	</div>
+	<div id="footer-bottom">
+		<div id="footer-bottom-content">
+			<div id="footer-tagline">{{{msg-citizen-footer-tagline}}}</div>
+			{{#array-footer-icons}}
+			<nav id="{{id}}" {{#className}}class="{{.}}"{{/className}}>
+				<ul>
+					{{#array-items}}
+					<li id="{{id}}">{{{html}}}</li>
+					{{/array-items}}
+				</ul>
+			</nav>
+			{{/array-footer-icons}}
+		</div>
+	</div>
+</footer>

@@ -1,0 +1,178 @@
+
+/*
+ * Hide some extra stuff from print view
+ * (some of the navigation is already hidden automatically, but not all)
+*/
+.mw-header,
+.mw-indicators,
+.toctoggle,
+.mw-side,
+.noprint,
+#catlinks,
+#p-namespaces,
+#p-variants,
+#footer-bottom,
+#toc,
+.hatnote,
+.mbox,
+.mw-sidebar-sitename,
+.tabbernav,
+.embedvideo {
+	display: none !important;
+}
+
+* {
+	box-shadow: none !important;
+}
+
+html,
+body {
+	color: @base-20;
+	font-family: @fonts;
+}
+
+p,
+ul,
+ol {
+	margin: 0.8rem 0 0 0;
+}
+
+.mw-body {
+	color: @base-20;
+}
+
+.mw-body .firstHeading {
+	margin: 0;
+	padding-top: 1.2rem;
+	color: @base-10;
+	overflow: inherit;
+	line-height: 1.2;
+}
+
+.mw-body h1,
+.mw-body-content h1 {
+	font-size: @content-h1-size;
+}
+
+.mw-body-content {
+	line-height: @content-line-height;
+	font-size: @content-body-size;
+
+	#contentSub,
+	#contentSub2 {
+		color: @base-30;
+		font-size: @content-caption-size;
+	}
+
+	p {
+		line-height: inherit;
+		overflow-wrap: break-word;
+	}
+
+	h2 {
+		font-size: @content-h2-size;
+	}
+
+	h3 {
+		font-size: @content-h3-size;
+	}
+
+	h4 {
+		font-size: @content-h4-size;
+	}
+
+	h5 {
+		font-size: @content-h5-size;
+	}
+
+	h6 {
+		font-size: @content-h6-size;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		margin: 0;
+		padding: 0;
+		color: @color-content-header;
+	}
+
+	h1,
+	h2 {
+		margin-top: @content-margin-top * 3;
+	}
+
+	h3,
+	h4,
+	h5,
+	h6,
+	p + p {
+		margin-top: @content-margin-top * 2;
+	}
+
+	/* stylelint-disable no-descending-specificity */
+	h1 + h2,
+	h2 + h3,
+	h3 + h4,
+	h4 + h5,
+	h5 + h6,
+	p,
+	table {
+		margin-top: @content-margin-top;
+	}
+	/* stylelint-enable */
+
+	ul {
+		margin: @content-margin-top 0 0 @content-margin-top * 2;
+		padding: 0;
+
+		ul {
+			margin: 0 0 0 @content-margin-top * 2;
+		}
+	}
+}
+
+#siteSub {
+	display: block;
+	margin: 0.4rem 0 1.6rem;
+	color: #72777d;
+	font-size: 0.8125rem;
+}
+
+.mw-footer {
+	padding-top: 1rem;
+	border-top: 1px solid @base-30;
+
+	ul {
+		padding: 0;
+		list-style-type: none;
+	}
+}
+
+.last-modified-bar {
+	padding-bottom: 1rem;
+	font-size: @content-caption-size;
+}
+
+.mw-wiki-title {
+	color: @base-30;
+	font-size: 1.2rem;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.gallery {
+	margin: 0 !important;
+}
+
+.infobox {
+	background: @base-100 !important;
+	border: 1px solid @base-30 !important;
+}
+
+.tabbertab {
+	display: block !important;
+}

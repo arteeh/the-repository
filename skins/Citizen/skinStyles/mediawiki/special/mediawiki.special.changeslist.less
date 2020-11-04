@@ -1,0 +1,99 @@
+/*
+ * Citizen - Recent Changes Styles
+ * https://starcitizen.tools
+*/
+
+@import '../../../resources/variables.less';
+
+/*!
+ * Styling for Special:Watchlist and Special:RecentChanges
+ */
+
+#siteSub {
+	display: none !important;
+}
+
+// Mimic siteSub
+.mw-rcfilters-enabled,
+.mw-rcfilters-disabled {
+	.mw-specialpage-summary {
+		margin: 0.4rem 0 1.6rem;
+		color: @base-30;
+		font-size: @content-caption-size;
+
+		p {
+			margin: 0;
+		}
+	}
+}
+
+.rcoptions {
+	margin: @content-margin-top * 2 0;
+	padding: 0;
+	border: 0;
+
+	legend {
+		margin-bottom: @margin-side / 2;
+		padding: @margin-side / 2 0;
+		width: 100%;
+		border-bottom: 1px solid @base-80;
+		font-size: @content-small-text-size;
+	}
+
+	// Needed additional parent to override
+	.mw-changeslist-legend {
+		border-color: @base-80;
+		border-radius: @border-radius-small;
+	}
+}
+
+.mw-changeslist {
+	h4 {
+		border-bottom: 1px solid @base-80;
+		color: @base-30 !important;
+		padding: @margin-side / 2 0 !important;
+		font-size: @content-caption-size !important;
+		font-family: @fonts !important;
+	}
+
+	.comment {
+		color: @base-30;
+	}
+
+	.mw-tag-markers {
+		.mw-tag-marker {
+			color: @base-30;
+		}
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+	.rcoptions {
+		color: @dark-text-90;
+
+		legend {
+			border-color: @dark-bg-20;
+		}
+
+		.mw-changeslist-legend {
+			border-color: @dark-bg-20;
+		}
+	}
+
+	.mw-changeslist {
+		h4 {
+			color: @dark-text-80 !important;
+			border-color: @dark-bg-20;
+		}
+
+		.comment {
+			color: @dark-text-80;
+		}
+
+		.mw-tag-markers {
+			.mw-tag-marker {
+				color: @dark-text-80;
+			}
+		}
+	}
+}

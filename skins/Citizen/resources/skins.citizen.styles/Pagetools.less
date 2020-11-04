@@ -1,0 +1,158 @@
+#page-tools {
+	position: absolute;
+	display: flex;
+	transform: translateX( ~'calc( (100vw - @{page-width}) / 2 - @{margin-side} * 2 - 100%)' ); // magic
+	z-index: 1;
+
+	ul {
+		margin: 0;
+		display: flex;
+		list-style: none;
+	}
+
+	li {
+		margin: 0;
+	}
+}
+
+#p-views {
+	li > a {
+		.resource-loader-icon-link;
+		padding: 5px;
+		font-size: 0;
+		opacity: @opacity-icon;
+		transition: @transition-opacity;
+
+		&:hover {
+			opacity: @opacity-icon-active;
+		}
+
+		&:after {
+			.resource-loader-icon;
+		}
+
+		span {
+			.mixin-screen-reader-text;
+		}
+	}
+}
+
+#p-actions {
+	.resource-loader-icon-link;
+	padding: 5px;
+	cursor: pointer;
+	// transition: @transition-opacity-quick; - Hidden behind the menu anyways
+
+	// TODO: Need to make value more flexible
+	ul {
+		z-index: -1;
+		pointer-events: none;
+		.menu-container;
+		position: absolute;
+		opacity: 0;
+		.boxshadow(4);
+		transition: @transition-opacity-quick, @transition-box-shadow-quick;
+
+		a {
+			.menu-item-link;
+			justify-content: space-between;
+			font-size: @ui-menu-text;
+			padding: @padding-menu-item;
+
+			&:after {
+				.resource-loader-list-icon;
+				margin-left: @icon-padding;
+				opacity: @opacity-icon;
+			}
+
+			&:hover,
+			&:active,
+			&:focus {
+				&:after {
+					opacity: @opacity-icon-active;
+				}
+			}
+
+			&:hover {
+				.menu-item-link-hover;
+			}
+
+			&:active {
+				.menu-item-link-active;
+			}
+
+			&:focus {
+				.menu-item-link-focus;
+			}
+		}
+	}
+
+	&:before {
+		.resource-loader-menu-icon;
+		opacity: @opacity-icon;
+	}
+
+	&:hover ul {
+		z-index: 5;
+		opacity: 1;
+		pointer-events: auto;
+	}
+}
+
+// TODO: Flexible value
+@media ( max-width: @screen2 ) {
+	#page-tools {
+		z-index: unset;
+		position: relative;
+		margin-left: @margin-side / 2;
+		float: right;
+		transform: none;
+	}
+
+	#p-actions {
+		> ul {
+			right: 0;
+		}
+	}
+}
+
+@media ( max-width: 500px ) {
+	#p-actions {
+		> ul {
+			right: unset;
+		}
+	}
+}
+
+@media ( prefers-color-scheme: dark ) {
+	#p-actions {
+		ul {
+			background: @dark-bg-50;
+
+			a {
+				color: @dark-text-80 !important;
+
+				&:hover {
+					background-color: @dark-bg-60;
+					color: @dark-text-90 !important;
+				}
+
+				&:active,
+				&:focus {
+					color: @dark-text-100 !important;
+					background-color: @accent-10;
+				}
+			}
+		}
+
+		&:before {
+			filter: invert( 1 );
+		}
+	}
+
+	#p-views {
+		li > a:after {
+			filter: invert( 1 );
+		}
+	}
+}

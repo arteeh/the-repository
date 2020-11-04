@@ -1,0 +1,29 @@
+// Citizen main styles
+
+@import '../variables.less';
+@import '../mixins.less';
+
+@media screen {
+	@import 'common/common.less';
+	@import 'common/content.less';
+	@import 'common/typography.less';
+	@import 'common/hacks.less';
+	@import 'common/wikitable.less';
+	@import 'common/scrollbar.less';
+	@import 'common/reducemotion.less';
+
+	// Components
+	@import 'Header.less';
+	@import 'Drawer.less';
+	@import 'Searchbox.less';
+	@import 'Pagetools.less';
+	@import 'Menu.less';
+	@import 'Sidebar.less';
+	@import 'Catlinks.less';
+	@import 'Pagelinks.less';
+	@import 'Footer.less';
+}
+
+@media print {
+	@import 'common/print.less';
+}
